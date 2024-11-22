@@ -1,0 +1,72 @@
+[08-Nov-2024 04:46:29 Europe/Berlin] PHP Warning:  Undefined array key "pago_contado" in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 15
+[08-Nov-2024 04:46:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'codigo_zapato' in 'field list' in C:\xampp\htdocs\venta_zapatos\src\ventas.php:36
+Stack trace:
+#0 C:\xampp\htdocs\venta_zapatos\src\ventas.php(36): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 36
+[08-Nov-2024 04:49:10 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nombre_cliente' in 'field list' in C:\xampp\htdocs\venta_zapatos\src\ventas.php:38
+Stack trace:
+#0 C:\xampp\htdocs\venta_zapatos\src\ventas.php(38): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 38
+[08-Nov-2024 04:50:58 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fecha_venta' in 'field list' in C:\xampp\htdocs\venta_zapatos\src\ventas.php:38
+Stack trace:
+#0 C:\xampp\htdocs\venta_zapatos\src\ventas.php(38): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 38
+[08-Nov-2024 04:52:24 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'precio' in 'field list' in C:\xampp\htdocs\venta_zapatos\src\ventas.php:38
+Stack trace:
+#0 C:\xampp\htdocs\venta_zapatos\src\ventas.php(38): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 38
+[08-Nov-2024 05:09:29 Europe/Berlin] PHP Warning:  require(../fpdf/fpdf.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 3
+[08-Nov-2024 05:09:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../fpdf/fpdf.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\venta_zapatos\src\ventas.php:3
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 3
+[08-Nov-2024 05:15:17 Europe/Berlin] PHP Warning:  require_once(libs/fpdf.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\venta_zapatos\config\db.php on line 39
+[08-Nov-2024 05:15:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'libs/fpdf.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\venta_zapatos\config\db.php:39
+Stack trace:
+#0 C:\xampp\htdocs\venta_zapatos\src\login.php(3): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\config\db.php on line 39
+[08-Nov-2024 05:18:10 Europe/Berlin] PHP Warning:  require(../fpdf/fpdf.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 3
+[08-Nov-2024 05:18:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../fpdf/fpdf.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\venta_zapatos\src\ventas.php:3
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\src\ventas.php on line 3
+[08-Nov-2024 16:31:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function user_hash() in C:\xampp\htdocs\venta_zapatos\src\registro.php:18
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\src\registro.php on line 18
+[12-Nov-2024 01:08:01 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\login.php on line 21
+[12-Nov-2024 01:13:42 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\login.php on line 23
+[12-Nov-2024 01:13:52 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\login.php on line 23
+[12-Nov-2024 01:14:34 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\login.php on line 23
+[12-Nov-2024 01:19:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function name_hash() in C:\xampp\htdocs\venta_zapatos\src\registro.php:27
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\venta_zapatos\src\registro.php on line 27
+[12-Nov-2024 01:44:43 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\login.php on line 23
+[13-Nov-2024 20:19:51 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\login.php on line 24
+[13-Nov-2024 20:27:03 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\login.php on line 24
+[13-Nov-2024 20:30:29 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\venta_zapatos\src\login.php on line 17
+[13-Nov-2024 20:30:29 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\venta_zapatos\src\login.php on line 27
+[13-Nov-2024 20:31:32 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\venta_zapatos\src\login.php on line 17
+[13-Nov-2024 20:31:32 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\venta_zapatos\src\login.php on line 27
+[13-Nov-2024 20:34:29 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\venta_zapatos\src\login.php on line 17
+[13-Nov-2024 20:34:29 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\venta_zapatos\src\login.php on line 27
+[13-Nov-2024 20:34:42 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\venta_zapatos\src\login.php on line 17
+[21-Nov-2024 00:50:05 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\venta_zapatos\src\login.php on line 17
+[21-Nov-2024 00:51:10 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\venta_zapatos\src\login.php on line 17
+[21-Nov-2024 00:51:10 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\venta_zapatos\src\login.php on line 27
+[21-Nov-2024 05:12:32 Europe/Berlin] PHP Warning:  Undefined array key "nombre" in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 5
+[21-Nov-2024 05:12:32 Europe/Berlin] PHP Warning:  Undefined array key "contacto" in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 6
+[21-Nov-2024 05:15:13 Europe/Berlin] PHP Warning:  Undefined array key "nombre" in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 5
+[21-Nov-2024 05:15:13 Europe/Berlin] PHP Warning:  Undefined array key "contacto" in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 6
+[21-Nov-2024 05:17:44 Europe/Berlin] PHP Warning:  Undefined array key "nombre" in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 5
+[21-Nov-2024 05:17:44 Europe/Berlin] PHP Warning:  Undefined array key "contacto" in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 6
+[21-Nov-2024 05:17:57 Europe/Berlin] PHP Warning:  Undefined array key "nombre" in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 5
+[21-Nov-2024 05:17:57 Europe/Berlin] PHP Warning:  Undefined array key "contacto" in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 6
+[21-Nov-2024 05:37:12 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 197
+[21-Nov-2024 05:37:12 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\venta_zapatos\src\Proveedor.php on line 198
