@@ -19,6 +19,6 @@ Interfaz Amigable
 Diseño moderno con CSS personalizado.
 Tiles flotantes para una mejor organización visual.
 Tecnologías Utilizadas
-Frontend: HTML5, CSS3, JavaScript (con librería Html5Qrcode).
+Frontend: HTML5, CSS3, JavaScript.
 Backend: PHP, MySQL (para el manejo de datos).
 Frameworks y Librerías: FPDF para la generación de tickets en PDF.
