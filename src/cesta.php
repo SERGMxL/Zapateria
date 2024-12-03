@@ -14,9 +14,9 @@ if (!isset($_SESSION['cesta']) || empty($_SESSION['cesta'])) {
 // Calcular total
 $total = 0;
 foreach ($_SESSION['cesta'] as $producto) {
-    $cantidad = isset($producto['cantidad']) ? $producto['cantidad'] : 1; // Si no hay cantidad, usa 1 como valor por defecto
-    $total_producto = $producto['precio'] * $cantidad; // Calcula el total por producto
-    $total += $total_producto; // Acumula el total
+    $cantidad = isset($producto['cantidad']) ? $producto['cantidad'] : 1;
+    $total_producto = $producto['precio'] * $cantidad;
+    $total += $total_producto;
 }
 
 // Procesar pago
@@ -26,21 +26,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cliente_email = "klausdepaepe@gmail.com";
     $id_usuario = 1;
 
-    // Registrar cada producto en la tabla ventas
     $fecha_venta = date('Y-m-d');
-    $venta_id = 123; // Aquí podrías obtener el ID de la venta (usualmente después de insertarla en la base de datos)
+    $venta_id = rand(1000, 9999);
 
     foreach ($_SESSION['cesta'] as $item) {
         $codigo_zapato = $item['codigo'];
         $precio = $item['precio'];
-        $cantidad = isset($item['cantidad']) ? $item['cantidad'] : 1; // Si no hay cantidad, usa 1 como valor por defecto
+        $cantidad = isset($item['cantidad']) ? $item['cantidad'] : 1;
 
         $stmt = $mysqli->prepare("
-            INSERT INTO ventas (fecha, cliente_nombre, cliente_email, tipo_pago, total, id_usuario, codigo_zapato, nombre_cliente, fecha_venta, precio, cantidad) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO ventas (fecha, cliente_nombre, cliente_email, tipo_pago, total, id_usuario, codigo_zapato, precio, cantidad) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ");
         $stmt->bind_param(
-            'ssssdsdssdd',
+            'sssdsdsdd',
             $fecha_venta,
             $cliente_nombre,
             $cliente_email,
@@ -48,12 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $total,
             $id_usuario,
             $codigo_zapato,
-            $cliente_nombre,
-            $fecha_venta,
             $precio,
             $cantidad
         );
-
 
         if (!$stmt->execute()) {
             echo "<script>alert('Error al registrar la venta: " . $stmt->error . "');</script>";
@@ -62,136 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->close();
     }
 
-    // Función para generar el ticket
-    function generar_ticket($venta_id, $cliente_nombre, $cliente_email, $productos, $total, $fecha_venta, $tipo_pago) {
-        // Crear contenido HTML del ticket
-        $ticket_html = '
-        <!DOCTYPE html>
-        <html lang="es">
-        <head>
-            <meta charset="UTF-8">
-            <title>Ticket de Venta</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 0;
-                    padding: 20px;
-                    width: 300px;
-                    background-color: #f4f4f4;
-                }
-                h1 {
-                    text-align: center;
-                    color: #333;
-                }
-                .ticket-info {
-                    margin-bottom: 20px;
-                    padding: 10px;
-                    background-color: #fff;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                }
-                .ticket-info p {
-                    margin: 5px 0;
-                    font-size: 14px;
-                }
-                table {
-                    width: 100%;
-                    margin-top: 10px;
-                    border-collapse: collapse;
-                }
-                table, th, td {
-                    border: 1px solid #ddd;
-                }
-                th, td {
-                    padding: 8px;
-                    text-align: left;
-                }
-                th {
-                    background-color: #007bff;
-                    color: white;
-                }
-                .total {
-                    font-size: 18px;
-                    font-weight: bold;
-                    text-align: right;
-                    margin-top: 15px;
-                }
-                .footer {
-                    text-align: center;
-                    font-size: 12px;
-                    margin-top: 20px;
-                    color: #777;
-                }
-            </style>
-        </head>
-        <body>
-            <h1>Ticket de Venta</h1>
-            <div class="ticket-info">
-                <p><strong>Venta ID:</strong> ' . $venta_id . '</p>
-                <p><strong>Fecha:</strong> ' . $fecha_venta . '</p>
-                <p><strong>Vendedor:</strong> ' . htmlspecialchars($cliente_nombre) . '</p>
-                <p><strong>Email:</strong> ' . htmlspecialchars($cliente_email) . '</p>
-                <p><strong>Tipo de Pago:</strong> ' . ucfirst($tipo_pago) . '</p>
-            </div>
+    echo "<script>
+        alert('Compra a $tipo_pago realizada. Redirigiendo a la impresión del ticket.');
+        window.location.href = 'imprimir_ticket.php?venta_id=$venta_id';
+    </script>";
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>';
-
-        // Agregar productos al ticket
-        foreach ($productos as $item) {
-            $cantidad = isset($item['cantidad']) ? $item['cantidad'] : 1; // Verifica la cantidad
-            $total_producto = $item['precio'] * $cantidad;
-
-            $ticket_html .= '
-                <tr>
-                    <td>' . htmlspecialchars($item['codigo']) . '</td>
-                    <td>' . htmlspecialchars($item['marca']) . '</td>
-                    <td>' . htmlspecialchars($item['modelo']) . '</td>
-                    <td>$' . number_format($item['precio'], 2) . '</td>
-                    <td>' . $cantidad . '</td>
-                    <td>$' . number_format($total_producto, 2) . '</td>
-                </tr>';
-        }
-
-        $ticket_html .= '
-                </tbody>
-            </table>
-
-            <div class="total">
-                Total: $' . number_format($total, 2) . '
-            </div>
-
-            <div class="footer">
-                Gracias por tu compra. ¡Vuelve pronto!
-            </div>
-        </body>
-        </html>';
-
-        // Guardar el ticket en un archivo
-        $filename = 'ticket_' . $venta_id . '.html';
-        file_put_contents($filename, $ticket_html);
-
-        // Puedes devolver la ruta del archivo generado si deseas usarlo más tarde
-        return $filename;
-    }
-
-    // Llamada a la función para generar el ticket
-    $ticket = generar_ticket($venta_id, $cliente_nombre, $cliente_email, $_SESSION['cesta'], $total, $fecha_venta, $tipo_pago);
-
-    // Mostrar mensaje de éxito y redirigir al cliente
-    echo "<script>alert('Compra a $tipo_pago realizada.'); window.location.href = '$ticket';</script>";
-
-    session_destroy(); // Limpiar la cesta después del pago
+    session_destroy();
     exit;
 }
 ?>
@@ -338,5 +210,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
+
+    <script src="print32print.js"></script>
+    <script>
+        function buscarImpresoras() {
+            PrintJS.getPrinters().then(printers => {
+                console.log("Impresoras disponibles:", printers);
+                alert("Impresoras detectadas: " + printers.join(", "));
+            }).catch(error => {
+                console.error("Error al buscar impresoras:", error);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', buscarImpresoras);
+    </script>
 </body>
 </html>
