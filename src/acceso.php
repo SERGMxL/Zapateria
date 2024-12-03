@@ -1,6 +1,5 @@
 <?php
-include '../config/db.php'; // Asegúrate de que `db.php` contiene la conexión PDO
-
+include '../config/db.php';
 // Inicializa el mensaje de error
 $error = '';
 
