@@ -8,18 +8,29 @@ $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buscar_precio'])) {
     $codigo_zapato = $_POST['codigo_zapato'];
 
-    $stmt = $pdo->prepare("SELECT * FROM zapatos WHERE codigo = ?");
-    $stmt->execute([$codigo_zapato]);
-    $zapato = $stmt->fetch();
+    // Ejecutar un script externo en segundo plano para buscar el precio
+    $output = null;
+    $return_var = null;
 
-    if ($zapato) {
-        echo json_encode([
-            'precio' => $zapato['precio'],
-            'marca' => $zapato['marca'],
-            'modelo' => $zapato['modelo']
-        ]);
+    // Escapar parámetros para evitar problemas de inyección
+    $codigo_zapato_escaped = escapeshellarg($codigo_zapato);
+
+    // Llamada al script con exec
+    exec("php buscar_precio.php $codigo_zapato_escaped", $output, $return_var);
+
+    if ($return_var === 0) {
+        $zapato = json_decode(implode('', $output), true);
+        if ($zapato) {
+            echo json_encode([
+                'precio' => $zapato['precio'],
+                'marca' => $zapato['marca'],
+                'modelo' => $zapato['modelo']
+            ]);
+        } else {
+            echo json_encode(['error' => 'Zapato no encontrado']);
+        }
     } else {
-        echo json_encode(['error' => 'Zapato no encontrado']);
+        echo json_encode(['error' => 'Error al buscar el zapato']);
     }
     exit;
 }
@@ -46,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregar_cesta'])) {
     echo "<script>alert('Zapato agregado a la cesta');</script>";
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
