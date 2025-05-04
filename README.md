@@ -1,24 +1,39 @@
-# ZapaTecNM - Sistema de Gestión de Ventas para Zapaterías
-ZapaTecNM es una aplicación web diseñada para la gestión integral de ventas en zapaterías. Este sistema incluye características como manejo de inventarios, registro de ventas (a crédito y contado), escaneo de códigos QR/barra para facilitar la búsqueda de productos, y generación automática de tickets en PDF.
+# 👞 ZapaTecNM - Sistema de Gestión de Ventas para Zapaterías
 
-Características
-Gestión de Ventas
+**ZapaTecNM** es una aplicación web desarrollada para optimizar la gestión de ventas en zapaterías. Ofrece funcionalidades como control de inventario, registro de ventas (tanto a crédito como a contado), escaneo de códigos QR o de barras para facilitar la selección de productos, y generación automática de tickets en formato PDF.
 
-Registro de ventas con opción de pago a contado o a crédito.
-Integración de datos del cliente, como nombre y correo electrónico.
-Escaneo de Códigos
+## 🎯 Funcionalidades Principales
 
-Escaneo de códigos QR/barra para autocompletar datos del producto.
-Ventana emergente para mostrar en tiempo real lo capturado por la cámara.
-Generación de Tickets en PDF
+### 🛒 Gestión de Ventas
+- Registro de ventas con opción de pago **a contado o a crédito**.
+- Asociación de ventas con datos del cliente como nombre y correo electrónico.
 
-Creación automática de un ticket con los detalles de la compra.
-Descarga del ticket para el cliente.
-Interfaz Amigable
+### 📷 Escaneo de Códigos
+- Escaneo de **códigos QR o de barras** para autocompletar información del producto.
+- **Ventana emergente en tiempo real** que muestra la cámara durante el escaneo.
 
-Diseño moderno con CSS personalizado.
-Tiles flotantes para una mejor organización visual.
-Tecnologías Utilizadas
-Frontend: HTML5, CSS3, JavaScript.
-Backend: PHP, MySQL (para el manejo de datos).
-Frameworks y Librerías: FPDF para la generación de tickets en PDF.
+### 🧾 Generación de Tickets en PDF
+- Creación automática de un **ticket de compra** con todos los detalles.
+- Opción para **descargar el ticket** directamente por el cliente.
+
+### 🎨 Interfaz Amigable
+- Diseño moderno y responsivo con **CSS personalizado**.
+- Uso de **tiles flotantes** para mejorar la organización visual de la información.
+
+## 🧰 Tecnologías Utilizadas
+
+- **Frontend**: HTML5, CSS3, JavaScript  
+- **Backend**: PHP  
+- **Base de Datos**: MySQL  
+- **Librerías**:
+  - [FPDF](http://www.fpdf.org/) para la generación de tickets en formato PDF.
+
+## 📁 Estructura del Proyecto
+
+
+## 🚀 Cómo Ejecutarlo
+
+1. Clona el repositorio en tu servidor local o hosting con soporte para PHP:
+
+```bash
+git clone https://github.com/tu_usuario/ZapaTecNM.git
